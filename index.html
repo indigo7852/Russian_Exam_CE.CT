@@ -5,170 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Русский язык — А1</title>
-<style>
-:root {
-  color-scheme: light;
-  --bg:#f4f5f9; --surface:#fff; --surface2:#f0f1f6;
-  --text:#202438; --muted:#858b9c; --border:#e5e7ef;
-  --accent:#5969d9; --accent-soft:#edf0ff;
-  --green:#27966a; --green-soft:#e6f6ee;
-  --red:#d65d65; --red-soft:#fff0f0;
-  --yellow:#b58a26; --yellow-soft:#fff6dc;
-  --shadow:0 5px 22px rgba(25,30,60,.045);
-}
-[data-theme="dark"] {
-  color-scheme:dark;
-  --bg:#171923; --surface:#202330; --surface2:#292d3c;
-  --text:#edf0fa; --muted:#a0a6b8; --border:#34394a;
-  --accent:#9aa5ff; --accent-soft:#303653;
-  --green:#65c99b; --green-soft:#203d32;
-  --red:#ff8989; --red-soft:#482b32;
-  --yellow:#e6c36b; --yellow-soft:#443b25;
-  --shadow:0 5px 22px rgba(0,0,0,.15);
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);
-font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-button,input,select{font:inherit}
-button{cursor:pointer}
-header{background:var(--surface);border-bottom:1px solid var(--border)}
-.header-inner{max-width:1180px;margin:auto;padding:15px 24px;
-display:flex;justify-content:space-between;align-items:center;gap:15px}
-.logo{font-weight:850;font-size:21px;letter-spacing:-.7px}
-.logo span{color:var(--accent)}
-.header-actions{display:flex;align-items:center;gap:9px}
-.icon-btn{width:39px;height:39px;border:1px solid var(--border);
-border-radius:11px;background:var(--surface);color:var(--text);font-size:17px}
-.profile{width:38px;height:38px;border-radius:50%;background:var(--accent-soft);
-color:var(--accent);display:grid;place-items:center;font-weight:750}
-nav{max-width:1180px;margin:auto;padding:0 24px 12px;
-display:flex;gap:5px;flex-wrap:wrap}
-.nav-btn{border:0;background:transparent;color:var(--muted);
-padding:10px 13px;border-radius:9px;font-size:13px}
-.nav-btn.active{background:var(--accent-soft);color:var(--accent);font-weight:700}
-main{max-width:1180px;margin:auto;padding:30px 24px 65px}
-.page{display:none}.page.active{display:block}
-h1{font-size:29px;letter-spacing:-.8px;margin:0 0 9px}
-h2{font-size:19px;margin:0}
-h3{font-size:15px;margin:0}
-p{line-height:1.55}
-.muted{color:var(--muted)}
-.subtitle{font-size:14px;color:var(--muted);margin:0 0 24px}
-.eyebrow{font-size:11px;color:var(--accent);font-weight:800;
-letter-spacing:1.1px;text-transform:uppercase;margin-bottom:9px}
-.section-head{display:flex;justify-content:space-between;align-items:center;
-gap:12px;margin:25px 0 14px}
-.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
-.tile{background:var(--surface);border:1px solid var(--border);
-border-radius:15px;padding:19px;text-align:left;min-height:145px;
-color:var(--text);box-shadow:var(--shadow);transition:.16s}
-.tile:hover{transform:translateY(-2px);border-color:var(--accent)}
-.tile-icon{width:40px;height:40px;border-radius:11px;
-display:grid;place-items:center;font-size:19px;margin-bottom:15px}
-.tile strong{display:block;font-size:14px;margin-bottom:6px}
-.tile small{font-size:12px;color:var(--muted);line-height:1.5}
-.purple{background:#eceeff;color:#5969d9}
-.blue{background:#e7f2ff;color:#4684bd}
-.green{background:#e5f5ec;color:#27966a}
-.orange{background:#fff0df;color:#bc8035}
-[data-theme="dark"] .purple{background:#303653;color:#aab2ff}
-[data-theme="dark"] .blue{background:#26384a;color:#8fc4f5}
-[data-theme="dark"] .green{background:#203d32;color:#65c99b}
-[data-theme="dark"] .orange{background:#453526;color:#e9b978}
-.panel{background:var(--surface);border:1px solid var(--border);
-border-radius:14px;padding:19px;box-shadow:var(--shadow)}
-.row{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.stat-card{background:var(--surface);border:1px solid var(--border);
-border-radius:13px;padding:16px}
-.stat-label{font-size:12px;color:var(--muted);margin-bottom:9px}
-.stat-value{font-size:25px;font-weight:800}
-.stat-card.total .stat-value{color:var(--accent)}
-.stat-card.good .stat-value{color:var(--green)}
-.stat-card.bad .stat-value{color:var(--red)}
-.stat-card.wait .stat-value{color:var(--yellow)}
-.filters{display:flex;gap:7px;flex-wrap:wrap;margin:17px 0}
-.filter-btn{border:1px solid var(--border);border-radius:9px;
-background:var(--surface);color:var(--muted);padding:9px 12px;font-size:12px}
-.filter-btn.active{background:var(--accent-soft);border-color:var(--accent);
-color:var(--accent);font-weight:700}
-.catalog-layout{display:grid;grid-template-columns:1fr 260px;gap:16px}
-.catalog-table{background:var(--surface);border:1px solid var(--border);
-border-radius:14px;overflow:hidden}
-.catalog-header,.catalog-row{display:grid;
-grid-template-columns:75px minmax(0,1fr) 95px 90px;
-align-items:center;gap:12px;padding:14px 16px}
-.catalog-header{background:var(--surface2);font-size:11px;
-font-weight:750;color:var(--muted);text-transform:uppercase}
-.catalog-row{border-top:1px solid var(--border);font-size:13px}
-.part-label{background:var(--accent-soft);color:var(--accent);
-border-radius:7px;padding:7px;text-align:center;font-weight:800}
-.topic-name{font-weight:600;line-height:1.4}
-.topic-total{font-size:12px;color:var(--muted);text-align:right}
-.topic-count{font-size:12px;text-align:right}
-.side-panel{background:var(--surface);border:1px solid var(--border);
-border-radius:14px;padding:18px;height:max-content}
-.side-panel p{font-size:12px;color:var(--muted)}
-.btn{border:0;border-radius:9px;padding:10px 14px;
-background:var(--accent);color:white;font-size:13px;font-weight:650}
-.btn.secondary{background:var(--accent-soft);color:var(--accent)}
-.btn.outline{background:var(--surface);border:1px solid var(--border);color:var(--text)}
-.btn:disabled{opacity:.4;cursor:not-allowed}
-.back{border:0;background:transparent;color:var(--accent);
-padding:0;margin:0 0 22px;font-size:13px;font-weight:650}
-.back:hover{text-decoration:underline}
-.empty{padding:32px 18px;text-align:center;color:var(--muted)}
-.empty-icon{font-size:28px;margin-bottom:10px}
-.empty strong{display:block;color:var(--text);font-size:14px;margin-bottom:6px}
-.empty p{font-size:12px;margin:0}
-.constructor-layout{display:grid;grid-template-columns:1fr 250px;gap:16px}
-.constructor-row{display:grid;grid-template-columns:110px 1fr 85px;
-gap:12px;align-items:center;padding:13px 15px;
-border-bottom:1px solid var(--border);font-size:13px}
-.constructor-row:last-child{border:0}
-.counter{display:flex;align-items:center;gap:6px}
-.counter button{width:28px;height:28px;border-radius:50%;
-border:1px solid var(--border);background:var(--surface);color:var(--text)}
-.counter input{width:35px;text-align:center;border:0;
-background:var(--surface2);color:var(--text);border-radius:6px;padding:6px 1px}
-.counter input::-webkit-inner-spin-button{-webkit-appearance:none}
-.history-row{padding:17px 0;border-bottom:1px solid var(--border)}
-.history-row:last-child{border:0}
-.history-row strong{font-size:14px}
-.history-meta{font-size:12px;color:var(--muted);margin-top:5px}
-.table{width:100%;border-collapse:collapse;font-size:13px}
-.table td,.table th{padding:12px;text-align:left;border-bottom:1px solid var(--border)}
-.table th{font-size:11px;text-transform:uppercase;color:var(--muted)}
-footer{text-align:center;padding:22px;color:var(--muted);
-font-size:11px;border-top:1px solid var(--border)}
-@media(max-width:850px){
-.tiles{grid-template-columns:repeat(2,1fr)}
-.catalog-layout,.constructor-layout{grid-template-columns:1fr}
-.side-panel{order:-1}
-.stats-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:560px){
-.header-inner{padding:12px 14px}
-nav{padding:0 9px 10px;gap:2px}
-.nav-btn{padding:9px 10px;font-size:12px}
-main{padding:23px 13px 45px}
-h1{font-size:24px}
-.tiles{gap:9px}
-.tile{padding:14px;min-height:137px}
-.catalog-header,.catalog-row{grid-template-columns:48px minmax(0,1fr) 64px;
-gap:8px;padding:12px 9px}
-.catalog-header span:last-child,.catalog-row .topic-count{display:none}
-.catalog-header span:nth-child(3){text-align:right}
-.topic-total{text-align:right;font-size:11px}
-.constructor-row{grid-template-columns:105px minmax(0,1fr);
-gap:9px;padding:12px 9px}
-.constructor-row .available{display:none}
-.stats-grid{gap:8px}
-.stat-card{padding:12px}
-.stat-value{font-size:22px}
-.panel{padding:14px}
-}
-</style>
+<link rel="stylesheet" href="css/style.css">\n<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
 <body>
 <header>
@@ -247,7 +84,7 @@ gap:9px;padding:12px 9px}
   </div>
   <aside class="side-panel">
    <h3>Каталог заданий</h3>
-   <p>Сейчас доступна одна часть теста — А1. Остальные разделы можно будет добавить позднее.</p>
+   <p>Банк заданий загружается из Excel-файла в папке data. Фильтруй задания и запускай тренировку.</p>
    <button class="btn" style="width:100%" onclick="showPage('constructor')">Конструктор вариантов</button>
   </aside>
  </div>
@@ -282,7 +119,7 @@ gap:9px;padding:12px 9px}
 <section class="page" id="constructor">
  <div class="eyebrow">Составление работы</div>
  <h1>Конструктор вариантов</h1>
- <p class="subtitle">Выбери количество заданий по доступной теме.</p>
+ <p class="subtitle">Составь тренировочный вариант из заданий базы А1.</p>
  <div class="constructor-layout">
   <div class="catalog-table">
    <div class="catalog-header" style="grid-template-columns:110px 1fr 85px">
@@ -300,7 +137,7 @@ gap:9px;padding:12px 9px}
   </div>
   <aside class="side-panel">
    <h3>Параметры варианта</h3>
-   <p>Количество заданий в выбранной теме.</p>
+   <p>Настрой параметры варианта и запусти тестирование.</p>
    <div class="row"><span class="muted" style="font-size:12px">Выбрано</span><strong id="selectedCount">0</strong></div>
    <button class="btn" style="width:100%;margin-top:15px" id="buildBtn" disabled>Составить вариант</button>
    <button class="btn secondary" style="width:100%;margin-top:9px" id="standardBtn" disabled>Стандартный вариант</button>
@@ -324,206 +161,28 @@ gap:9px;padding:12px 9px}
   </div>
  </div>
 </section>
+
+<section class="page runner-page" id="runner">
+ <div id="runnerContent" class="runner-wrap"></div>
+</section>
 </main>
 <footer>Русский язык · Подготовка к ЦТ и ЦЭ</footer>
+<div class="modal-shade" id="builderModal" role="dialog" aria-modal="true" aria-labelledby="builderModalTitle">
+ <div class="modal-box">
+  <h2 id="builderModalTitle">Параметры варианта</h2>
+  <div class="param-grid">
+   <label>Количество заданий<select id="paramCount"><option value="1">1</option><option value="3">3</option><option value="5" selected>5</option><option value="10">10</option><option value="all">Все доступные</option></select></label>
+   <label>Год<select id="paramYear"><option value="all">Любой</option></select></label>
+   <label>Источник<select id="paramExam"><option value="all">Любой</option><option value="1">ЦТ</option><option value="2">ЦЭ</option><option value="3">РТ</option><option value="4">ДРТ</option></select></label>
+   <label>Тип слов<select id="paramType"><option value="all">Любой состав</option><option value="P">Есть проверяемые (P)</option><option value="C">Есть чередующиеся (C)</option><option value="N">Есть словарные (N)</option></select></label>
+   <label>Таймер<select id="paramTimer"><option value="0">Без таймера</option><option value="5">5 минут</option><option value="10">10 минут</option><option value="15">15 минут</option><option value="20">20 минут</option><option value="30">30 минут</option></select></label>
+  </div>
+  <p class="muted" style="font-size:12px">Порядок заданий перемешивается. Пять слов внутри каждого задания остаются в исходном порядке.</p>
+  <div class="modal-actions"><button class="btn outline" id="cancelBuilder">Отмена</button><button class="btn" id="confirmBuilder">Создать вариант</button></div>
+ </div>
+</div>
+<script type="module" src="js/main.js"></script>
 
-<script>
-/*
-  ЛОКАЛЬНЫЕ ДАННЫЕ
-  Пока банк пустой. Позже сюда будут загружаться реальные задания
-  из подготовленной таблицы Excel.
-  
-  Структура одного задания:
-  {
-    id: "A1-001",
-    part: "А1",
-    topic: "Правописание безударных гласных А/О в корнях слов",
-    question: "...",
-    answers: [],
-    correctAnswer: "...",
-    source: "...",
-    explanation: "..."
-  }
-*/
-const DB = {
-  tasks: [],
-  solvedWorks: []
-};
 
-const TOPIC = "Правописание безударных гласных А/О в корнях слов";
-let activeFilter = "all";
-let selectedQuantity = 0;
-
-const $ = id => document.getElementById(id);
-
-function getTaskStatus(task) {
-  // Последняя попытка определяет актуальный статус задания.
-  const attempts = task.attempts || [];
-  if (!attempts.length) return "unanswered";
-  return attempts[attempts.length - 1].correct ? "correct" : "wrong";
-}
-
-function getCounts() {
-  const counts = {all:DB.tasks.length,unanswered:0,wrong:0,correct:0};
-  DB.tasks.forEach(task => counts[getTaskStatus(task)]++);
-  return counts;
-}
-
-function showPage(id) {
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-  $(id).classList.add("active");
-  document.querySelectorAll(".nav-btn").forEach(b=>
-    b.classList.toggle("active",b.dataset.page===id));
-  window.scrollTo({top:0,behavior:"smooth"});
-  renderAll();
-}
-
-document.querySelectorAll(".nav-btn").forEach(button=>
-  button.addEventListener("click",()=>showPage(button.dataset.page)));
-
-function statCard(label,value,cls="") {
-  return `<div class="stat-card ${cls}">
-    <div class="stat-label">${label}</div>
-    <div class="stat-value">${value}</div>
-  </div>`;
-}
-
-function renderStats() {
-  const c=getCounts();
-  $("homeStats").innerHTML=[
-    statCard("Всего заданий",c.all,"total"),
-    statCard("Не сделано",c.unanswered,"wait"),
-    statCard("Решено неверно",c.wrong,"bad"),
-    statCard("Решено верно",c.correct,"good")
-  ].join("");
-  $("catalogStats").innerHTML=$("homeStats").innerHTML;
-  $("homeTopicCount").textContent=c.all+" заданий";
-  $("statsCards").innerHTML=[
-    statCard("Решённые работы",DB.solvedWorks.length,"total"),
-    statCard("Всего заданий в банке",c.all),
-    statCard("Решено верно",c.correct,"good"),
-    statCard("Решено неверно",c.wrong,"bad")
-  ].join("");
-}
-
-function renderCatalog() {
-  const c=getCounts();
-  const filtered=DB.tasks.filter(task=>
-    activeFilter==="all" || getTaskStatus(task)===activeFilter);
-  const count=filtered.length;
-  const row=$("catalogRows");
-  if (!count) {
-    row.innerHTML=`<div class="empty">
-      <div class="empty-icon">▤</div>
-      <strong>${activeFilter==="all"?"Заданий пока нет":"В этой категории пока нет заданий"}</strong>
-      <p>${activeFilter==="all"?"Здесь появятся задания А1 после загрузки таблицы.":"Количество заданий в выбранной категории: 0."}</p>
-    </div>`;
-  } else {
-    row.innerHTML=`<div class="catalog-row">
-      <span class="part-label">А1</span>
-      <span class="topic-name">${TOPIC}</span>
-      <span class="topic-total">${count}</span>
-      <span class="topic-count">${count} шт.</span>
-    </div>`;
-  }
-}
-
-document.querySelectorAll(".filter-btn").forEach(button=>{
-  button.addEventListener("click",()=>{
-    activeFilter=button.dataset.filter;
-    document.querySelectorAll(".filter-btn").forEach(b=>
-      b.classList.toggle("active",b===button));
-    renderCatalog();
-  });
-});
-
-function renderConstructor() {
-  const available=DB.tasks.length;
-  selectedQuantity=Math.min(selectedQuantity,available);
-  $("quantity").value=selectedQuantity;
-  $("selectedCount").textContent=selectedQuantity;
-  $("availableCount").textContent=available+" шт.";
-  $("quantity").max=available;
-  $("quantity").disabled=available===0;
-  $("minus").disabled=available===0 || selectedQuantity===0;
-  $("plus").disabled=available===0 || selectedQuantity>=available;
-  $("buildBtn").disabled=selectedQuantity===0;
-  $("standardBtn").disabled=available===0;
-}
-
-$("minus").addEventListener("click",()=>{
-  selectedQuantity=Math.max(0,selectedQuantity-1);
-  renderConstructor();
-});
-$("plus").addEventListener("click",()=>{
-  selectedQuantity=Math.min(DB.tasks.length,selectedQuantity+1);
-  renderConstructor();
-});
-$("quantity").addEventListener("change",()=>{
-  selectedQuantity=Math.max(0,Math.min(DB.tasks.length,Number($("quantity").value)||0));
-  renderConstructor();
-});
-$("clearBtn").addEventListener("click",()=>{
-  selectedQuantity=0;
-  renderConstructor();
-});
-$("standardBtn").addEventListener("click",()=>{
-  selectedQuantity=DB.tasks.length;
-  renderConstructor();
-});
-$("buildBtn").addEventListener("click",()=>{
-  if(selectedQuantity>0) alert("Конструктор будет формировать вариант из реальных заданий.");
-});
-
-function renderWorks() {
-  const box=$("solvedWorks");
-  if(!DB.solvedWorks.length) {
-    box.innerHTML=`<div class="empty">
-      <div class="empty-icon">▤</div>
-      <strong>Решённых работ пока нет</strong>
-      <p>Когда будет решён первый вариант, его результаты появятся здесь.</p>
-    </div>`;
-    return;
-  }
-  box.innerHTML=DB.solvedWorks.map(work=>`
-    <div class="history-row">
-      <div class="row"><strong>${work.title}</strong>
-      <strong>${work.score} / ${work.maxScore}</strong></div>
-      <div class="history-meta">${work.date}</div>
-    </div>`).join("");
-}
-
-function selectTest(type) {
-  $("testTitle").textContent=type+" — варианты";
-  $("testContent").innerHTML=`<div class="empty">
-    <div class="empty-icon">▤</div>
-    <strong>Вариантов пока нет</strong>
-    <p>Здесь появятся реальные варианты ${type}, когда они будут добавлены в локальные данные.</p>
-  </div>`;
-}
-
-function renderAll() {
-  renderStats();
-  renderCatalog();
-  renderConstructor();
-  renderWorks();
-}
-
-// Переключение темы. Сохраняется локально в браузере.
-const savedTheme=localStorage.getItem("russian-platform-theme")||"light";
-document.documentElement.dataset.theme=savedTheme;
-function updateThemeButton(){
-  $("themeToggle").textContent=
-    document.documentElement.dataset.theme==="dark"?"☀":"☾";
-}
-$("themeToggle").addEventListener("click",()=>{
-  const next=document.documentElement.dataset.theme==="dark"?"light":"dark";
-  document.documentElement.dataset.theme=next;
-  localStorage.setItem("russian-platform-theme",next);
-  updateThemeButton();
-});
-updateThemeButton();
-renderAll();
-</script>
 </body>
 </html>
