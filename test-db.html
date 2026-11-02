@@ -1,0 +1,5 @@
+<!doctype html><meta charset="utf-8"><pre id="out">loading</pre><script type="module">
+import {loadDatabase} from './js/database.js';
+try { const tasks=await loadDatabase(); document.querySelector('#out').textContent=JSON.stringify({count:tasks.length,words:tasks.reduce((s,t)=>s+t.words.length,0),first:tasks[0]},null,2); }
+catch(e){document.querySelector('#out').textContent='ERROR '+e.stack;}
+</script>

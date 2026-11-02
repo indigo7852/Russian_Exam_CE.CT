@@ -40,7 +40,10 @@ display:flex;gap:5px;flex-wrap:wrap}
 padding:10px 13px;border-radius:9px;font-size:13px}
 .nav-btn.active{background:var(--accent-soft);color:var(--accent);font-weight:700}
 main{max-width:1180px;margin:auto;padding:30px 24px 65px}
-.page{display:none}.page.active{display:block}
+.page{display:none;opacity:0;transform:translateY(8px)}
+.page.active{display:block;animation:pageEnter .34s cubic-bezier(.2,.75,.25,1) both}
+@keyframes pageEnter{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
 h1{font-size:29px;letter-spacing:-.8px;margin:0 0 9px}
 h2{font-size:19px;margin:0}
 h3{font-size:15px;margin:0}
@@ -195,3 +198,14 @@ gap:9px;padding:12px 9px}
 .modal-box h2{margin-bottom:16px}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}
 .db-status{font-size:12px;padding:9px 11px;border-radius:9px;background:var(--surface2);color:var(--muted);margin-top:12px}
 @media(max-width:560px){.param-grid{grid-template-columns:1fr}.runner-controls{align-items:stretch}.runner-nav{order:3;width:100%}}
+
+/* Более мягкие отклики элементов интерфейса */
+button,.tile,.panel,.runner-word,.answer-chip,.runner-nav button{
+ transition:background-color .22s ease,color .22s ease,border-color .22s ease,
+ transform .22s cubic-bezier(.2,.75,.25,1),box-shadow .22s ease,opacity .22s ease;
+}
+.nav-btn:active,.btn:active,.tile:active{transform:scale(.985)}
+.runner-word:hover{border-color:var(--accent)}
+.answer-toggle{transition:background-color .2s ease,border-color .2s ease,transform .2s ease}
+.answer-toggle:active{transform:scale(.94)}
+.runner-progress span{transition:width .45s cubic-bezier(.2,.75,.25,1)}
